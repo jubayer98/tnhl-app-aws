@@ -100,11 +100,6 @@ app.get('/health', (_req: Request, res: Response) => {
   res.status(200).json({ status: 'ok' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-  if (REPORT_ASSET_BASE_URL) {
-    console.log(`Report assets mode: remote base URL (${REPORT_ASSET_BASE_URL})`);
-  } else {
-    console.log('Report assets mode: local static files');
-  }
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server running on port ${PORT}`);
 });
