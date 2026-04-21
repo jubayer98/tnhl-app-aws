@@ -38,7 +38,7 @@ function buildReportAssetObjectKey(reportType: string, sampleFolder: string, fil
 
 app.use(
   cors({
-    origin: process.env.CLIENT_ORIGIN || 'http://localhost:5173',
+    origin: (process.env.CLIENT_ORIGIN || 'http://localhost:5173').replace(/\/$/, ""),
   }),
 );
 app.use(express.json());
